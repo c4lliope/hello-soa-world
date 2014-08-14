@@ -1,0 +1,68 @@
+@import 'variables';
+@import url(http://fonts.googleapis.com/css?family=IM+Fell+Great+Primer:400,400italic);
+
+body {
+  background-color: #f8fbf2;
+}
+body, h1, h2, h3, h4, h5, h6, p, a {
+  font-family: 'IM Fell Great Primer', serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+.navbar.gryffindor-striped {
+  @include diagonal_lines_pattern($maroon, $gold);
+  a, p, navbar-text, li a {
+    color: white;
+  }
+  height: 50px;
+  margin-bottom: 90px;
+}
+
+.navbar {
+  .navbar-brand {
+    margin: 0;
+  }
+  .navbar-logo {
+    background: image-url("giffindor-logo.png") no-repeat;
+    background-size: 100%;
+    background-color: transparent;
+    background-position: left top;
+    height: 150px;
+    width: 120px;
+  }
+}
+
+img.framed {
+  border-image: image-url('frame.png') 93 92 87 92 stretch stretch; 
+  border-color: #f4be52; 
+  border-style: inset; 
+  border-width: 60px; 
+  background-color: #ffe; 
+}
+
+section.gif-list {
+  padding-top: 20px;
+  article.gif-entry {
+    border-bottom: 1px solid #ccc;
+    margin: 10px 0;
+    .gif-entry-image img {
+      width: 617px;
+    }
+    .gif-entry-body {
+      font-size: 20px;
+    }
+    .gif-entry-delete {
+      float: right;
+      margin-bottom: 10px;
+    }
+    .gif-entry-user {
+      float: left;
+    }
+    .gif-entry-permalink {
+      float: left;
+      clear: left;
+    }
+  }
+}

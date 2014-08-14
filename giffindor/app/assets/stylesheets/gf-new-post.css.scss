@@ -1,0 +1,188 @@
+// Styles for gf-new-post component
+@mixin error-message {
+  display: block;
+  color: white;
+  background-color: red;
+}
+@mixin success-message {
+  display: block;
+  color: white;
+  background-color: green;
+}
+
+.gif-entry-fav {
+  float: right;
+}
+
+.gif-entry-fav-link {
+  float: left;
+}
+
+.gif-entry-fav-count {
+  font-size: 18px;
+  display: block;
+  float: left;
+  padding: 0 6px 0 0;
+}
+
+.gif-list-filter {
+  .filter-all {
+    color: black;
+    cursor: default;
+    text-decoration: none;
+  }
+  &.faved {
+    .filter-all {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+
+    }
+    .filter-faved {
+      color: black;
+      cursor: default;
+      text-decoration: none;
+    }
+  }
+}
+
+i.fav-star {
+  @extend .fa;
+  @extend .fa-star-o;
+  font-size: 26px;
+  color: black;
+  &.is-favorited {
+    @extend .fa-star;
+    color: $gold;
+  }
+}
+
+h1.no-top-margin {
+  margin-top: 0px;
+}
+
+#share-section {
+  float: right;
+}
+.row.headline {
+  margin-top: 10px;
+}
+.share-dialog {
+  background-color: white;
+  border-radius: 6px;
+  padding: 16px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  .title {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  .character-count {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    float: right;
+  }
+  textarea {
+    border-radius: 6px;
+    width: 70%;
+    float: left;
+  }
+  .gif-preview-container {
+    width: 25%;
+    float:right;
+  }
+  .gif-input-container {
+    clear: both;
+  }
+  .gif-input-actions {
+    float: left;
+  }
+  .message {
+    margin: -5px 0 5px 0;
+    border-radius: 5px;
+    width: 70%;
+  }
+}
+
+.new-post-component {
+  .button-area {
+    pointer-events: none;
+    opacity: 0;
+    -webkit-transition: opacity 200ms;
+    transition: opacity 200ms;
+    display: block;
+  }
+  .share-dialog, .gif-post-dialog-column {
+    height: 100%;
+  }
+  .share-dialog-container {
+    opacity: 1;
+    height: 160px;
+    -webkit-transition-property: height, opacity;
+    transition-property: height, opacity;
+    -webkit-transition-duration: 300ms, 200ms;
+    transition-duration: 300ms, 200ms;
+    -webkit-transition-delay: 0ms, 100ms;
+    transition-delay: 0ms, 100ms;
+  }
+  &.initial {
+    .button-area {
+      pointer-events: auto;
+      opacity: 1;
+      display: block;
+    }
+    .share-dialog-container {
+      height: 0px;
+      opacity: 0;
+    }
+    .gif-submit {
+      @extend .disabled;
+    }
+  }
+  &.editing {
+    p.character-count {
+      margin-top: -10px;
+    }
+  }
+  &.loading {
+    .gif-submit {
+      @extend .disabled;
+    }
+  }
+  &.failure {
+    .message {
+      @include error-message;
+    }
+    .share-dialog-container {
+      height: 180px;
+    }
+  }
+  &.success {
+    .share-dialog-container {
+      height: 80px;
+    }
+    .share-gif-form {
+      display: none;
+    }
+    .message {
+      @include success-message;
+    }
+  }
+  &.is-invalid {
+    &.editing {
+      .share-dialog-container {
+        height: 180px;
+      }
+    }
+    .gif-submit {
+      @extend .disabled;
+    }
+    .message {
+      @include error-message;
+    }
+    .gif-input-actions {
+      margin-top: 10px;
+    }
+  }
+}

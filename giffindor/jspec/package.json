@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "karma-start": "karma start karma.conf.js"
+  },
+  "dependencies": {
+    "bower": "*",
+    "karma-ember-preprocessor": "*",
+    "karma-qunit": "*",
+    "karma-mocha": "*",
+    "karma-chai": "*",
+    "karma": "0.10.10"
+  },
+  "devDependencies": {
+    "karma-sinon-chai": "~0.1.4"
+  }
+}

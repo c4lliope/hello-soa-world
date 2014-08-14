@@ -1,0 +1,6 @@
+development:
+  sessions:
+    default:
+      database: LoggerProduction
+      hosts:
+        - localhost:27017

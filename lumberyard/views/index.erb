@@ -1,0 +1,16 @@
+<!-- lumberyard/views/index.erb -->
+<h2><%= logs.count %> logs found</h2>
+<div id="logs">
+  <% logs.each do |log| %>
+    <div class="log">
+      <span class="label"><%=log.label || "[No Label]"%></span>
+      <span class="created_at"><%= log.created_at %></span>
+      <div class="details" id="log-<%=log.id%>">
+      <script>
+        var details = <%= log.details.to_json %>;
+        document.getElementById("log-<%=log.id%>").appendChild(renderjson(details));
+      </script>
+      </div>
+    </div>
+  <% end %>
+</div>

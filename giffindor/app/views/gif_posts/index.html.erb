@@ -1,0 +1,19 @@
+<% if current_user %>
+  <div id="new-post-container">
+    <h1 class="no-top-margin">Recently Shared Gifs</h1>
+  </div>
+<% else %>
+  <div class="row headline">
+    <div class="col-md-8 col-sm-8 col-md-offset-2">
+      <h1>Recently Shared Gifs</h1>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="col-md-8 col-sm-8 col-md-offset-2">
+    <section id="gif-posts-container" class="gif-list">
+      Loading...
+    </section>
+  </div>
+</div>

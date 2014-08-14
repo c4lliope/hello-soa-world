@@ -1,0 +1,31 @@
+<form id="search">
+  <input type="text" name="key" placeholder="Key"></input>
+  <input type="text" name="value" placeholder="Value"></input>
+  <input type="submit">Add search criteria</input>
+</form>
+
+<a href="/">Clear all search criteria</a>
+
+<script>
+  function processForm(e) {
+    if (e.preventDefault) e.preventDefault();
+
+    var key = $('#search').find('input[name=key]').val()
+    var value = $('#search').find('input[name=value]').val()
+
+    console.log(key + " => " + value);
+
+    /* TODO real search */
+    window.location = "/search?" + key + "=" + value;
+
+    // You must return false to prevent the default form behavior
+    return false;
+  }
+
+  var form = document.getElementById('search');
+  if (form.attachEvent) {
+    form.attachEvent("submit", processForm);
+    } else {
+    form.addEventListener("submit", processForm);
+  }
+</script>

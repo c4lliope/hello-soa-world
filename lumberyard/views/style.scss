@@ -1,0 +1,57 @@
+@import "styles/bourbon/bourbon";
+@import "styles/neat/neat";
+
+body {
+  background-color: #2B6C82;
+  color: #F4F9EC;
+  font-family: 'Open Sans';
+}
+
+#sidebar, #logs {
+  background-color: #F4F9EC;
+  color: #081317;
+  padding: $gutter;
+  text-align: left;
+  .log {
+    margin-top: $gutter;
+  }
+}
+
+#container {
+  margin-top: $gutter;
+  @include outer-container;
+}
+
+#sidebar {
+  @include span-columns(4 of 12);
+}
+
+#main {
+  @include span-columns(8 of 12);
+  @include omega;
+  text-align: center;
+}
+
+pre {
+  font-family: Monaco, 'Bitstream Vera Sans Mono', 'Lucida Console', Terminal;
+}
+
+.renderjson a              { text-decoration: none; }
+.renderjson .disclosure    { font-size: 150%; }
+.renderjson .syntax        { }
+.renderjson .string        { color: #A84738 }
+.renderjson .number        { color: #A84738 }
+.renderjson .boolean       { color: #A84738 }
+.renderjson .key           { color: darken(#3EBB6C, 10%); }
+.renderjson .keyword       { }
+.renderjson .object.syntax { }
+.renderjson .array.syntax  { }
+
+a.delete {
+  color: #A84738;
+}
+
+.created_at {
+  float: right;
+  color: #AAA;
+}

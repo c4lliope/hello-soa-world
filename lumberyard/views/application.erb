@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      // restfulizer.js
+
+    /**
+     * Restfulize any hiperlink that contains a data-method attribute by
+     * creating a mini form with the specified method and adding a trigger
+     * within the link.
+     * Requires jQuery!
+     *
+     * Ex:
+     *     <a href="post/1" data-method="delete">destroy</a>
+     *     // Will trigger the route Route::delete('post/(:id)')
+     * 
+     */
+    $(function(){
+        $('[data-method]').append(function(){
+          return "\n"+
+          "<form action='"+$(this).attr('href')+"' method='POST' style='display:none'>\n"+
+          "   <input type='hidden' name='_method' value='"+$(this).attr('data-method')+"'>\n"+
+          "</form>\n"
+          })
+        .removeAttr('href')
+        .attr('style','cursor:pointer;')
+        .attr('onclick','$(this).find("form").submit();');
+        });
+      </script>
+      <style>pre { background-color: #CCC; padding: 1em; }</style>
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" type="text/css" href="/style.css"/>
+      <script type="text/javascript" src="/renderjson.js"></script>
+      <script>
+        renderjson.set_show_to_level(2)
+      </script>
+    </head>
+
+    <body>
+      <div id="container">
+        <div id="sidebar">
+          <%= erb :search %>
+        </div>
+
+        <div id="main">
+          <%= yield %>
+        </div>
+      </div>
+    </body>
+  </html>
